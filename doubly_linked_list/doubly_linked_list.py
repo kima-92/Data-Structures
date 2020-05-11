@@ -127,7 +127,7 @@ class DoublyLinkedList:
         if node is self.head:
             return
 
-        # Use DLL functions to add this node to the head
+        # Use ListNode functions to add this node to the head
         self.add_to_head(node.value)
         self.delete(node)
 
@@ -138,7 +138,7 @@ class DoublyLinkedList:
         if node is self.tail:
             return
         
-        # Use DLL functions to add this node to the tail
+        # Use ListNode functions to add this node to the tail
         self.add_to_tail(node.value)
         self.delete(node)
 
@@ -165,4 +165,19 @@ class DoublyLinkedList:
         
     """Returns the highest value currently in the list"""
     def get_max(self):
-        pass
+        # Set a max varibale
+        # max = 0
+        max = self.head.value
+        # Track nodes
+        current = self.head
+
+        # Loop through nodes
+        while current:
+            
+            # Compare value in node to max
+            if current.value > max:
+                max = current.value
+
+            current = current.next
+        # Return max found
+        return max
