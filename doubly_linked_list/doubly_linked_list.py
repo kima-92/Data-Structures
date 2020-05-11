@@ -118,6 +118,11 @@ class DoublyLinkedList:
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node."""
     def remove_from_tail(self):
+        # If the DLL has no value
+        if not self.head and not self.tail:
+            # Return
+            return
+
         # Save the value to return later
         value = self.tail.value
         # Use the delete function to take care of the reassigning of a new tail
