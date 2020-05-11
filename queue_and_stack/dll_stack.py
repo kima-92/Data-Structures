@@ -11,13 +11,13 @@ class Stack:
     def push(self, value):
         # Use DLL's add to head function
         # It will take care of whether or not it's an empty DLL
-        pass
+        return self.storage.add_to_head(value)
 
     def pop(self):
         # Use DDL's remove from head function
         # It will take care of whether or not it's an empty DLL
-        pass
+        return self.storage.remove_from_head()
 
     def len(self):
         # Return the length of the DLL
-        pass
+        return self.storage.length
