@@ -127,19 +127,20 @@ class DoublyLinkedList:
         if node is self.head:
             return
 
-        # Set the head's prev to be this node
-        self.head.prev = node
-        # Set this node's next to be the current head
-        node.next = self.head
-        # Set this node's prev to None
-        node.prev = None
-        # Set the head to be this new node
-        self.head = node
+        # Use DLL functions to add this node to the head
+        self.add_to_head(node.value)
+        self.delete(node)
 
     """Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List."""
     def move_to_end(self, node):
-        pass
+        # Don't do anything if this is already the tail
+        if node is self.tail:
+            return
+        
+        # Use DLL functions to add this node to the tail
+        self.add_to_tail(node.value)
+        self.delete(node)
 
     """Removes a node from the list and handles cases where
     the node was the head or the tail"""
