@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../doubly_linked_list')
+
 
 """
 Binary search trees are a data structure that enforce an ordering over 
