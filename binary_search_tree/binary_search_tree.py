@@ -20,7 +20,32 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # Check if new value is less than self.value
+        if value < self.value:
+            # Check if there is a value in self.left
+
+            # If there is no value in self.left
+            if not self.left:
+                # Create a new BinarySearchTree node with this new value
+                # Set it to be tis node's left child (node)
+                self.left = BSTNode(value)
+            # Else: If there IS a self.left
+            else:
+                # Use recursion (call the current function again) to attempt
+                # the same thing on the BinarySearchTree child node to the left
+                self.left.insert(value)
+        # Else, if new value is grater than self.value
+        else:
+            # If there is no value in self.right
+            if not self.right:
+                # Create a new BinarySearchTree node with this new value
+                # Set it to be tis node's right child (node)
+                self.right = BSTNode(value)
+            # If there IS a self.right
+            else:
+                # Use recursion (call the current function again) to attempt
+                # the same thing on the BinarySearchTree child node to the right
+                self.right.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
