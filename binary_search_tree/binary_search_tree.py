@@ -1,6 +1,8 @@
 import sys
 sys.path.append('../doubly_linked_list')
-
+sys.path.append('../queue_and_stack')
+from dll_queue import Queue
+from dll_stack import Stack
 
 """
 Binary search trees are a data structure that enforce an ordering over 
@@ -122,7 +124,30 @@ class BSTNode:
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self, node):
-        pass
+        # Check if this node is not empty
+        if node:
+            # Create a queue
+            my_queue = Queue()
+            # enqueue node
+            my_queue.enqueue(node)
+
+            # While the length of my_queue is not 0
+            while my_queue.len() != 0:
+                # save the last node in the queue in popped_node
+                # dequeue this last node from the queue
+                dequeued_node = my_queue.dequeue()
+                # print the value of popped_node 
+                print(dequeued_node.value)
+
+                # If popped_node.left is not empty
+                if dequeued_node.left:
+                    # Enqueue popped_node.left to the queue
+                    my_queue.enqueue(dequeued_node.left)
+                
+                # If popped_node.right is not empty
+                if dequeued_node.right:
+                    # Enqueue popped_node.right to the queue
+                    my_queue.enqueue(dequeued_node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
